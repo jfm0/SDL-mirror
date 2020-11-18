@@ -2286,11 +2286,15 @@ install(EXPORT SDL2Targets
 )
 install(
   FILES
-    ${CMAKE_CURRENT_SOURCE_DIR}/SDL2Config.cmake
+    #${CMAKE_CURRENT_SOURCE_DIR}/SDL2Config.cmake
     ${CMAKE_BINARY_DIR}/SDL2ConfigVersion.cmake
   DESTINATION ${PKG_PREFIX}
   COMPONENT Devel
 )
+
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/SDL2Config.cmake
+  "${PKG_PREFIX}/SDL2Config.cmake" @ONLY)
+
 
 file(GLOB INCLUDE_FILES ${SDL2_SOURCE_DIR}/include/*.h)
 file(GLOB BIN_INCLUDE_FILES ${SDL2_BINARY_DIR}/include/*.h)
